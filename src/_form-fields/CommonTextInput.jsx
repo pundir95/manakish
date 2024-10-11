@@ -11,11 +11,12 @@ const CommonTextInput = ({
   formConfig,
   type = "text",
   placeholder,
-  className = DEFAULT_CLASS,
+  className = "commonInput",
   label,
   icon,
   onIconClick,
   isNumberOnly = false,
+  maxlength = null,
 }) => {
   const {
     register,
@@ -37,6 +38,7 @@ const CommonTextInput = ({
           type={type}
           placeholder={placeholder}
           className={className}
+          maxlength={maxlength}
         />
       ) : (
         <input
@@ -44,6 +46,7 @@ const CommonTextInput = ({
           type={type}
           placeholder={placeholder}
           className={className}
+          maxlength={maxlength}
         />
       )}
 

@@ -19,11 +19,23 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+.commonInput {
+  @apply px-4 py-3 bg-gray-100 focus:bg-transparent w-full text-sm outline-[#333] rounded-sm transition-all;
+}
+.login-form {
+  @apply max-w-md mx-auto space-y-4 font-[sans-serif] text-[#333] mt-4;
+}
 
 .login-container {
   width: 100%;
   display: flex;
   align-items: center;
+}
+.sign-in-button {
+  @apply px-5 py-2.5 rounded-full text-white text-sm tracking-wider font-medium border border-current outline-none bg-[#e5e5e5]  active:bg-[#333];
+}
+.right-align {
+  @apply text-right;
 }
 .section1 {
   width: 40%;
@@ -34,7 +46,7 @@ body {
   height: 100vh;
 }
 .error-msg {
-  color: red;
+  @apply text-red-600;
 }
 .redirectLink a {
   text-decoration: underline;

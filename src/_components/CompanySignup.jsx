@@ -96,10 +96,7 @@ const CompanySignup = () => {
           register={register}
           fieldName={"terms_and_conditions"}
         />
-        <button
-          type="submit"
-          className="px-5 py-2.5 rounded-full text-white text-sm tracking-wider font-medium border border-current outline-none bg-[#e5e5e5]  active:bg-[#333]"
-        >
+        <button type="submit" className="sign-in-button">
           Create an account
         </button>
         <AuthRedirectSection

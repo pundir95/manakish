@@ -10,7 +10,7 @@ const LocationField = ({
   formConfig,
   type = "text",
   label,
-  className = DEFAULT_CLASS,
+  className = "commonInput",
   placeholder,
   rules,
 }) => {

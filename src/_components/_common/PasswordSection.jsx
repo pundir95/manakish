@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import { IndivisualSignupValidations } from "@/_validations/authValidations";
@@ -55,9 +55,8 @@ const PasswordSection = ({ formConfig, fieldOneName, fieldTwoName }) => {
           })}
           type={showPass?.password ? "text" : "password"}
           placeholder={"Enter your password"}
-          className={
-            "px-4 py-3 bg-gray-100 focus:bg-transparent w-full text-sm outline-[#333] rounded-sm transition-all"
-          }
+          className={"commonInput"}
+
         />
         <div className="icon" onClick={() => handleToglePassword("password")}>
           <Image
@@ -88,9 +87,7 @@ const PasswordSection = ({ formConfig, fieldOneName, fieldTwoName }) => {
           })}
           type={showPass?.confirm_password ? "text" : "password"}
           placeholder={"Confirm your password"}
-          className={
-            "px-4 py-3 bg-gray-100 focus:bg-transparent w-full text-sm outline-[#333] rounded-sm transition-all"
-          }
+          className={"commonInput"}
         />
         <div
           className="icon"
