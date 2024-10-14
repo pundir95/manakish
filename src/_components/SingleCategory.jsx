@@ -20,7 +20,7 @@ const SingleCategory = ({ data, onCategoryClick }) => {
         />
         <p className="mt-2 text-center text-sm font-medium">{label}</p>
       </div>
-      <CommonButton type={"button"} text="Add to cart" handleClick={handleClick} />
+      <CommonButton type={"button"} text="Add to cart" />
     </>
   );
 };
