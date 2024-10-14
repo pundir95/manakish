@@ -7,6 +7,7 @@ import PasswordSection from "./_common/PasswordSection";
 import LocationField from "./_common/LocationField";
 import TermsAndConditionsText from "./TermsAndConditionsText";
 import AuthRedirectSection from "./_common/AuthRedirectSection";
+import CommonButton from "./_common/CommonButton";
 
 const CompanySignup = () => {
   const formConfig = useForm();
@@ -96,9 +97,11 @@ const CompanySignup = () => {
           register={register}
           fieldName={"terms_and_conditions"}
         />
-        <button type="submit" className="sign-in-button">
-          Create an account
-        </button>
+        <CommonButton
+          type="submit"
+          className="sign-in-button"
+          text="Create an account"
+        />
         <AuthRedirectSection
           text="Have an account?"
           linkText="Log in"

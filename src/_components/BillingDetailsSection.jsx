@@ -4,6 +4,7 @@ import { BillingDetailsValidations } from "@/_validations/billingDetailsValidati
 import React from "react";
 import { useForm } from "react-hook-form";
 import LocationField from "./_common/LocationField";
+import CommonButton from "./_common/CommonButton";
 
 const BillingDetailsSection = () => {
   const formConfig = useForm();
@@ -75,7 +76,7 @@ const BillingDetailsSection = () => {
             placeholder="Enter Address"
             label="Address"
           />
-          <button type="submit">Submit</button>
+          <CommonButton type="submit" text="Submit"/>
         </form>
       </div>
     </div>

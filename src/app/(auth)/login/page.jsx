@@ -6,6 +6,7 @@ import { LoginValidations } from "@/_validations/authValidations";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import CommonButton from "@/_components/_common/CommonButton";
 
 const Login = () => {
   const formConfig = useForm();
@@ -59,9 +60,7 @@ const Login = () => {
           linkUrl="/forgot-password"
           className="text-right"
         />
-        <button type="submit" className="sign-in-button">
-          Sign in
-        </button>
+        <CommonButton type="submit" className="sign-in-button" text="Sign in" />
         <AuthRedirectSection
           text="Don't have an acount? "
           linkText="Sign up"

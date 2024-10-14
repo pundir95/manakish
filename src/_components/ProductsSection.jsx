@@ -1,5 +1,6 @@
 import React from "react";
 import CardComponentOne from "./_common/CardComponentOne";
+import Link from "next/link";
 const DUMMY_DATA = [
   {
     imageUrl: "/images/cardImage.png",
@@ -32,18 +33,19 @@ const ProductsSection = () => {
         <span className="uppercase text-red-600">Temptations</span>
       </h4>{" "}
       <div className="flex space-x-5">
-        {DUMMY_DATA?.map(({ imageUrl, title, price }, index) => (
-          <CardComponentOne
-            key={index}
-            imageUrl={imageUrl}
-            title={title}
-            price={price}
-          />
+        {DUMMY_DATA?.map((curItem, index) => (
+          <CardComponentOne key={index} data={curItem} />
         ))}
       </div>
-      <button className="bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 transition duration-300">
+      <Link
+        href="/products"
+        className="bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 transition duration-300"
+      >
         View All Products →
-      </button>
+      </Link>
+      {/* <button className="bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 transition duration-300">
+        View All Products →
+      </button> */}
     </>
   );
 };

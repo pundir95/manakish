@@ -1,12 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
-const CardComponentOne = ({
-  className = "",
-  imageUrl = "/images/cardImage.png",
-  price = 10,
-  name = "Premium Cookies",
-}) => {
+const CardComponentOne = ({ data }) => {
+  const { imageUrl, title, price, className } = data;
   return (
     <div>
       {" "}
@@ -18,8 +14,9 @@ const CardComponentOne = ({
           height={202}
           className={className}
         />
+        
         <div className="flex space-x-4 p-4">
-          <h2 className="font-bold text-xl mb-2">{name}</h2>
+          <h2 className="font-bold text-xl mb-2">{title}</h2>
           <p className="text-red-600 text-lg">{`$ ${price}`}</p>
         </div>
       </div>
@@ -28,3 +25,17 @@ const CardComponentOne = ({
 };
 
 export default CardComponentOne;
+{
+  /* <Carousel>
+{images.map((image:any, index:number) => (
+  <Card key={index} className="w-full max-w-[100%] ml-auto mr-auto">
+    <CardMedia
+      component="img"
+      alt={`Image ${index + 1}`}
+      image={image}
+      className='w-full'
+    />
+  </Card>
+))}
+</Carousel> */
+}

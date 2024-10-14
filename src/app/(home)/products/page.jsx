@@ -1,7 +1,12 @@
+import CategoriesListing from "@/_components/CategoriesListing";
+import ProductsPageHeader from "@/_components/ProductsPageHeader";
 import React from "react";
 
 const Products = () => {
-  return <div>Products Page</div>;
+  return <div>
+    <ProductsPageHeader/>
+    <CategoriesListing/>
+    </div>;
 };
 
 export default Products;

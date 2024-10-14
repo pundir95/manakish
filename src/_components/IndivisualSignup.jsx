@@ -8,6 +8,7 @@ import LocationField from "./_common/LocationField";
 import AuthRedirectSection from "./_common/AuthRedirectSection";
 import TermsAndConditionsText from "./TermsAndConditionsText";
 import { useRouter } from "next/navigation";
+import CommonButton from "./_common/CommonButton";
 
 const IndivisualSignup = () => {
   const router = useRouter();
@@ -98,9 +99,11 @@ const IndivisualSignup = () => {
             fieldName="terms_and_conditions"
           />{" "}
         </div>
-        <button type="submit" className="sign-in-button">
-          Create an account
-        </button>
+        <CommonButton
+          type="submit"
+          className="sign-in-button"
+          text="Create an account"
+        />
         <AuthRedirectSection
           text="Have an account?"
           linkText="Log in"

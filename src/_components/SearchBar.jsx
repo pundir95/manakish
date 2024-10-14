@@ -1,4 +1,5 @@
 import React from "react";
+import CommonButton from "./_common/CommonButton";
 
 const SearchBar = () => {
   return (
@@ -11,11 +12,15 @@ const SearchBar = () => {
           className="px-4 py-2 rounded-full outline-none text-gray-600 flex-grow"
         />
         {/* Button */}
-        <button className="bg-red-500 text-white px-6 py-2 rounded-full ml-2">
-          Find
-        </button>
+        <CommonButton
+          text="Find"
+          type="submit"
+          className="bg-red-500 text-white px-6 py-2 rounded-full ml-2"
+        />
       </div>
-      <p>Enter your zip code to discover products and offers available near you.</p>
+      <p>
+        Enter your zip code to discover products and offers available near you.
+      </p>
     </>
   );
 };
