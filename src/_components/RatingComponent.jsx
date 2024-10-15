@@ -1,24 +1,33 @@
+import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 const TOTAL_STAR_RATING = 5;
-const RatingComponent = ({ rating, totalRating = TOTAL_STAR_RATING }) => {
+const RatingComponent = ({
+  rating,
+  totalRating = TOTAL_STAR_RATING,
+  reviews,
+}) => {
   return (
-    <>
+    <div className="flex items center">
       {[...Array(totalRating)].map((_, idx) => {
         let number = idx + 0.5;
         return (
           <>
             {rating >= idx + 1 ? (
-              <i key={idx} className="fas fa-star"></i>
+              <FontAwesomeIcon className="rating-icon" icon={faStar} />
             ) : rating >= number ? (
-              <i class="fas fa-star-half-alt"></i>  
+              <FontAwesomeIcon className="rating-icon" icon={faStarHalf} />
             ) : (
-              <i key={idx} className="fa-regular fa-star"></i>
+              <FontAwesomeIcon className="rating-icon" icon={faStarRegular} /> 
             )}
           </>
         );
       })}
-    </>
-  );    
+      <div className="reviews">{`(${reviews}) reviews`}</div>
+    </div>
+  );
 };
 
 export default RatingComponent;

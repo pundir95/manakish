@@ -56,7 +56,6 @@ const PasswordSection = ({ formConfig, fieldOneName, fieldTwoName }) => {
           type={showPass?.password ? "text" : "password"}
           placeholder={"Enter your password"}
           className={"commonInput"}
-
         />
         <div className="icon" onClick={() => handleToglePassword("password")}>
           <Image

@@ -13,7 +13,7 @@ const BillingDetailsSection = () => {
     console.log(values, "billing details");
   };
   return (
-    <div>
+    <div className="billing-details border-[1px] border-[#FFFAF433]">
       <div className="heading">
         <h2>Billing Details</h2>
       </div>

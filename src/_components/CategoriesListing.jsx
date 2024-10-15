@@ -3,6 +3,7 @@ import SingleCategory from "./SingleCategory";
 import FiltersSection from "./FiltersSection";
 import CardComponentOne from "./_common/CardComponentOne";
 import CommonButton from "./_common/CommonButton";
+import Link from "next/link";
 const DUMMY_CATEGORIES = [
   {
     img: "/images/category-image.png",
@@ -40,24 +41,28 @@ const DUMMY_PRODUCTS = [
     imageUrl: "/images/cardImage.png",
     title: "Whole Grain bread",
     price: 40,
+    id: 1,
   },
   {
     imageUrl: "/images/cardImage.png",
     title: "Premium Cookies",
     price: 30,
+    id: 2,
   },
   {
     imageUrl: "/images/cardImage.png",
     title: "Premium Bread",
     price: 10,
+    id: 3,
   },
   {
     imageUrl: "/images/cardImage.png",
     title: "Premium Cookies",
     price: 10,
+    id: 4,
   },
 ];
-const onCategoryClick = (selectedCategory) => { 
+const onCategoryClick = (selectedCategory) => {
   console.log(selectedCategory, "selectedCategory");
 };
 const CategoriesListing = () => {
@@ -88,7 +93,9 @@ const CategoriesListing = () => {
       {/* product listing */}
       <div className="mt-3 mb-4 flex space-x-5">
         {DUMMY_PRODUCTS?.map((curItem, index) => (
-          <CardComponentOne key={index} data={curItem} />
+          <Link href={`products/${curItem?.id}`}>
+            <CardComponentOne key={index} data={curItem} />
+          </Link>
         ))}
       </div>
       {/* product listing */}

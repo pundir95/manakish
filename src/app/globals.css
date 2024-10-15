@@ -80,6 +80,49 @@ body {
 .selected {
   background-color: aliceblue;
 }
+.rating-icon {
+  width: 20px;
+  height: 19px;
+  color: #ff6363;
+}
+.product-info {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.single-product-detail {
+  width: 45%;
+}
+.product-carousel {
+  width: 45%;
+}
+.reviews {
+  color: #ff6363;
+  margin-left: 5px;
+}
+.counterDiv {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+.increement,
+.decreement {
+  background: #ffe794;
+  cursor: pointer;
+}
+.date {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+  width: 92px;
+  border: 2px solid #e0e0e0;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

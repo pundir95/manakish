@@ -1,27 +1,21 @@
-import ContactSection from "@/_components/ContactSection";
-import Footer from "@/_components/Footer";
-import HomePageBanner from "@/_components/HomePageBanner";
-import HomePageHeader from "@/_components/HomePageHeader";
-import HomePageSectionTwo from "@/_components/HomePageSectionTwo";
-import LimitedTimeOffers from "@/_components/LimitedTimeOffers";
-import Navbar from "@/_components/Navbar";
-import OurStorySection from "@/_components/OurStorySection";
-import ProductsSection from "@/_components/ProductsSection";
-import SignatureDelightBanner from "@/_components/SignatureDelightBanner";
+import Head from "next/head";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
   return (
     <div className="home-page">
       Home Page
-      {/* <HomePageHeader/>
-      <HomePageSectionTwo/>
-      <OurStorySection/>
-      <ProductsSection/>
-      <SignatureDelightBanner/>
-      <LimitedTimeOffers/>
-      <HomePageBanner/>
-      <ContactSection/>
-      <Footer/> */}
+      {/* 
+        <HomePageHeader/>
+        <HomePageSectionTwo/>
+        <OurStorySection/>
+        <ProductsSection/>
+        <SignatureDelightBanner/>
+        <LimitedTimeOffers/>
+        <HomePageBanner/>
+        <ContactSection/>
+        <Footer/> 
+      */}
     </div>
   );
 }

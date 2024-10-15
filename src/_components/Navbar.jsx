@@ -27,7 +27,7 @@ const NAV_LINKS = [
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <div className="w-full bg-white shadow-md">
+    <div className="w-full shadow-md" style={{ background: "linear-gradient(95.58deg, #FFFAF4 0%, #FFDC83 99.47%)" }}>
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo Section */}
         <div className="text-xl font-bold">

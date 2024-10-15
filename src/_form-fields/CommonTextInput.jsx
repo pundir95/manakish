@@ -17,6 +17,7 @@ const CommonTextInput = ({
   onIconClick,
   isNumberOnly = false,
   maxlength = null,
+  rows = null,
 }) => {
   const {
     register,
@@ -39,6 +40,15 @@ const CommonTextInput = ({
           placeholder={placeholder}
           className={className}
           maxlength={maxlength}
+        />
+      ) : type === "textarea" ? (
+        <textarea
+          {...register(fieldName, rules)}
+          type={type}
+          placeholder={placeholder}
+          className={className}
+          maxlength={maxlength}
+          rows={rows}
         />
       ) : (
         <input

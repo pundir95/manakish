@@ -3,6 +3,8 @@ import CardComponentOne from "@/_components/_common/CardComponentOne";
 import SingleProductHeader from "@/_components/SingleProductHeader";
 import Image from "next/image";
 import RatingComponent from "@/_components/RatingComponent";
+import ProductCarousel from "@/_components/ProductCarousel";
+import SingleProductDetail from "@/_components/SingleProductDetail";
 
 const RELATED_PRODUCTS = [
   {
@@ -39,8 +41,14 @@ const SingleProductPage = ({ params }) => {
   return (
     <div>
       <SingleProductHeader />
-      {/* carousel */}
-      {/* carousel */}
+      <div className="product-info">
+        {/* carousel */}
+        {/* <ProductCarousel images={IMAGES} /> */}
+        <div className="product-carousel">Product carousel</div>
+        <div className="single-product-detail">
+          <SingleProductDetail />
+        </div>
+      </div>
       {/* related product section */}
       <h1 className="text-center uppercase font-bebas-neue text-[18px] font-bold leading-[78px] text-customRed">
         Related{" "}
