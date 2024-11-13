@@ -1,6 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Head from "next/head"; // Import Head
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoSearchOutline } from "react-icons/io5";
+import { GiBasket } from "react-icons/gi";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,18 +36,43 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div style={{display:'flex',maxHeight: '100vw', maxWidth:'100vw'}}>
-        <div style={{maxWidth:"50vw"}}>
+        <div className="flex min-h-screen max-w-screen relative">
+  <div className="max-w-[50vw] relative">
+    <img
+      src="/images/homeLeft.png"
+      alt="Manakish Stories"
+      className="min-h-full"
+    />
+    <div className="absolute top-[30px] left-[50px] w-[15vw] h-[5vw]">
+      <img
+        src="/images/Logo.png"
+        alt="Manakish Stories"
+        className="min-h-full"
+      />
+    </div>
+  </div>
+  <div className="w-[50vw] p-4">
+    <header className="flex items-center justify-between pb-6">
+      <div className="flex items-center">
         <img
-          src="/images/homeLeft.png"
-          alt="Manakish Stories"
+          src="/images/user.png"
+          className="rounded-full"
+          alt="login-image"
         />
-        <h1>
-          Manakish Stories
-        </h1>
-      </div>
-      <div style={{width:'50vw'}}>{children}</div>
+        <div className="ml-3">
+          <h2 className="text-2xl text-[#D96C3E] font-semibold">Adam</h2>
+          <p className="text-[#D96C3E] text-sm m-0">300 KD</p>
         </div>
+      </div>
+      <div className="flex gap-4">
+        <RxHamburgerMenu size={24} color="#D96C3E"/>
+        <IoSearchOutline size={24} color="#D96C3E" />
+        <GiBasket size={24} color="#D96C3E" />
+      </div>
+    </header>
+    {children}
+  </div>
+</div>
       </body>
     </html>
   );
