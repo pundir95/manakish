@@ -11,6 +11,9 @@ module.exports = {
         customRed: "#FF6363",
         customBlack: "#434343",
       },
+      fontFamily: {
+        marcellus: ['Marcellus', 'serif'], // Add the Marcellus font
+      },
     },
   },
   plugins: [],

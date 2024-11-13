@@ -67,22 +67,6 @@ const Login = () => {
           linkUrl="/sign-up"
         />
       </form>
-      {/* <div className="social-login-section">
-        <div className="or">Or</div>
-        <button
-          type="submit"
-          onClick={handleLoginWithGoogle}
-          className="social-login-button text-center px-5 py-2.5 rounded-full text-black text-sm tracking-wider font-medium border border-current outline-none bg-transparent  active:bg-[#333]"
-        >
-         <Image
-            src="/icons/google-icon.svg"
-            alt="Google Icon"
-            width={24}
-            height={24}
-          />
-          <div className="text">Continue with Google</div>
-        </button>
-      </div> */}
     </>
   );
 };

@@ -8,11 +8,11 @@ const HomeLayout = ({ children }) => {
   return (
     <div>
       {" "}
-      <Navbar />
+      {/* <Navbar /> */}
       {children}
-      <HomePageBanner />
+      {/* <HomePageBanner />
       <ContactSection />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

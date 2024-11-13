@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -9,7 +12,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #F7F2E9;
     --foreground: #ededed;
   }
 }
