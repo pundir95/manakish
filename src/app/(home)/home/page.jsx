@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { TbWallet } from "react-icons/tb";
 import { RiMenu3Line } from "react-icons/ri";
 import { GiBasket } from "react-icons/gi";
@@ -19,22 +19,13 @@ import ProductsSection from "@/_components/ProductsSection";
 
 
 export default function Home() {
+  const [selectedOption, setSelectedOption] = useState('Delivery');
   return (
-    <div className="font-[Marcellus] bg-[#f5ece1] flex min-h-screen">
+    <div>
       {/* Left Side Image */}
-      <div className="flex items-center justify-center">
-        <img
-          src="/images/homeLeft.png"
-          alt="Manakish Stories"
-          className="max-h-full rounded-lg shadow-lg"
-        />
-        <h1 className="absolute text-white text-4xl font-bold">
-          Manakish Stories
-        </h1>
-      </div>
 
       {/* Right Side Content */}
-      <div className="w-1/2 p-6 overflow-y-auto">
+      <div>
         {/* Header */}
         <header className="flex items-center justify-between pb-6">
           <div className="flex items-center">
@@ -54,31 +45,73 @@ export default function Home() {
           </div>
         </header>
 
-        {/* Delivery and Pickup Options */}
-        <div className="flex justify-center gap-5 mb-6">
-          <button className="py-2 px-4 bg-[#c8aa81] text-white rounded-full">
+
+        {/* Delivery Details */}
+        <div className="bg-[#f9f5f1] p-4 rounded-lg mb-6 border">
+
+<div className="flex p-4 bg-[#faf5ed] rounded-lg">
+      {/* Delivery/Pickup Toggle */}
+      <div className="flex-1 border border-orange-200 rounded-lg p-4 mr-4">
+        <div className="flex justify-center mb-4">
+          <button
+            className={`px-4 py-2 rounded-l-lg ${
+              selectedOption === 'Delivery'
+                ? 'bg-[#35653e] text-white'
+                : 'bg-transparent text-[#35653e] border border-orange-200'
+            }`}
+            onClick={() => setSelectedOption('Delivery')}
+          >
             Delivery
           </button>
-          <button className="py-2 px-4 bg-[#c8aa81] text-white rounded-full">
+          <button
+            className={`px-4 py-2 rounded-r-lg ${
+              selectedOption === 'Pickup'
+                ? 'bg-[#35653e] text-white'
+                : 'bg-transparent text-[#35653e] border border-orange-200'
+            }`}
+            onClick={() => setSelectedOption('Pickup')}
+          >
             Pickup
           </button>
         </div>
 
-        {/* Delivery Details */}
-        <div className="bg-[#f9f5f1] p-4 rounded-lg mb-6">
-          <div className="flex items-center">
-            <FaMotorcycle size={20} className="mr-2" />
-            <p className="text-sm flex items-center">
-              Abdullah al Mubarak (West Jeleeb) <BiEdit className="ml-1" />
-            </p>
+        {/* Delivery Information */}
+        <div className="mb-4">
+          <label className="block text-gray-600 mb-2">Delivery To</label>
+          <div className="relative">
+            <select className="w-full border border-orange-200 rounded-lg p-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#35653e]">
+              <option>Abdullah al Mubarak (West Jeleeb) Edit</option>
+            </select>
           </div>
-          <div className="flex items-center mt-2">
-            <BiTime size={20} className="mr-2" />
-            <p className="text-sm">Earliest Arrival</p>
-            <a href="#" className="ml-auto text-sm text-gray-500">
-              Schedule Later
-            </a>
-          </div>
+        </div>
+
+        {/* Earliest Arrival */}
+        <div className="flex items-center justify-between">
+          <label className="text-gray-600">Earliest Arrival</label>
+          <a href="#" className="text-[#35653e] text-sm">Schedule Later</a>
+        </div>
+        <div className="mt-2">
+          <input
+            type="text"
+            value="20 Min"
+            disabled
+            className="w-full border border-orange-200 rounded-lg p-3 text-gray-800 bg-[#faf5ed] focus:outline-none"
+          />
+        </div>
+      </div>
+
+      {/* Fast & Free Delivery Image Section */}
+      <div className="w-64 flex items-center justify-center bg-[#35653e] text-white rounded-lg p-4">
+        <div className="text-center">
+          <p className="font-bold text-xl mb-2">Fast & Free</p>
+          <p className="font-extrabold text-2xl mb-4">DELIVERY</p>
+          <p>Free Delivery on Orders Above $20</p>
+          {/* Replace with your desired image */}
+          <img src="https://via.placeholder.com/100" alt="Fast and Free Delivery" className="mx-auto mt-4" />
+        </div>
+      </div>
+    </div>
+          
         </div>
 
         <div className="bg-green-600 p-4 rounded-lg text-white text-center mb-6">

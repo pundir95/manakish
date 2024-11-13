@@ -33,7 +33,18 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div style={{display:'flex',maxHeight: '100vw', maxWidth:'100vw'}}>
+        <div style={{maxWidth:"50vw"}}>
+        <img
+          src="/images/homeLeft.png"
+          alt="Manakish Stories"
+        />
+        <h1>
+          Manakish Stories
+        </h1>
+      </div>
+      <div style={{width:'50vw'}}>{children}</div>
+        </div>
       </body>
     </html>
   );
