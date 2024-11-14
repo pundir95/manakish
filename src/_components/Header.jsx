@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <>
-    <header className="flex items-center justify-between pb-6">
+    <header className="flex items-center justify-between pb-2 mb-4 border-b border-orange-200 m-4">
       <div className="flex items-center">
         <img
           src="/images/user.png"
@@ -27,7 +27,7 @@ const Header = () => {
         </div>
       </div>
       <div className="flex gap-4">
-        <RxHamburgerMenu size={24} color="#D96C3E" onClick={toggleSidebar}/>
+        <RxHamburgerMenu size={24} color="#D96C3E" onClick={toggleSidebar} className='cursor-pointer'/>
         <IoSearchOutline size={24} color="#D96C3E" />
         <GiBasket size={24} color="#D96C3E" />
       </div>

@@ -22,9 +22,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex rounded-lg">
+      <div className="flex rounded-lg m-4">
         {/* Delivery/Pickup Toggle */}
-        <div className="flex-1 border border-orange-200 rounded-lg p-4 mr-4 relative">
+        <div className="flex-1 border border-orange-200 rounded-lg p-4 mr-4 relative mt-4">
           <div className="flex justify-center mb-4 absolute -top-5 left-28">
             <button
               className={`px-4 py-2 rounded-l-full ${
@@ -62,6 +62,8 @@ export default function Home() {
                     onPlaceSelected={(place) => {
                       const lat = place.geometry.location.lat();
                       const lng = place.geometry.location.lng();
+                      localStorage.setItem("latitude", lat);
+                      localStorage.setItem("longitude", lng);
                       console.log("Latitude:", lat);
                       console.log("Longitude:", lng);
                     }}

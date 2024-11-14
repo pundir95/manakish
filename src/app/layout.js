@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
       />
     </div>
   </div>
-  <div className="w-[50vw] p-4">
+  <div className="w-[50vw]">
     <Header/>
     {children}
   </div>
