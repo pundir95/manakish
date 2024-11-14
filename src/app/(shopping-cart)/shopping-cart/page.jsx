@@ -8,8 +8,8 @@ function ShoppingDetails() {
  
   return (
    <>
-   {false && <ShoppingCart/>}
-   {true && <CartAddress/>}
+   {true && <ShoppingCart/>}
+   {false && <CartAddress/>}
    </>
 
   
