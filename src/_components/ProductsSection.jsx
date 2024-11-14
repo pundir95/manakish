@@ -37,7 +37,7 @@ const DUMMY_DATA = [
 
 const ProductsSection = () => {
   return (
-    <section className="pt-6">
+    <section>
     <h3 className="text-lg text-black font-semibold mb-4">All Products</h3>
     <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
       {DUMMY_DATA
