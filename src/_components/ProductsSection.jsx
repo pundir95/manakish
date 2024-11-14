@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { useRouter } from 'next/navigation'
 
 const DUMMY_DATA = [
   {
@@ -36,6 +38,13 @@ const DUMMY_DATA = [
 ];
 
 const ProductsSection = () => {
+
+  const router = useRouter();
+
+  const handleProductClick = () => {
+    router.push("/single-product");
+  };
+
   return (
     <section>
     <h3 className="text-lg text-black font-semibold mb-4">All Products</h3>
@@ -43,8 +52,9 @@ const ProductsSection = () => {
       {DUMMY_DATA
         .map((ele, index) => (
           <div
-            className="bg-white rounded-lg shadow-md p-4 text-center"
+            className="bg-white rounded-lg shadow-md p-4 text-center cursor-pointer"
             key={index}
+            onClick={handleProductClick}
           >
             <img
               src={ele.imageUrl}

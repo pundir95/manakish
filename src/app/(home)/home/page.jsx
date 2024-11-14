@@ -15,13 +15,12 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import CategoryCarousel from "@/_components/CategoryCarousel";
 import ProductsSection from "@/_components/ProductsSection";
-import SideBar from "@/_components/SideBar";
 
 export default function Home() {
   const [selectedOption, setSelectedOption] = useState("Delivery");
 
   return (
-    <div>
+    <>
       <div className="flex rounded-lg">
         {/* Delivery/Pickup Toggle */}
         <div className="flex-1 border border-orange-200 rounded-lg p-4 mr-4 relative">
@@ -92,7 +91,6 @@ export default function Home() {
 
       {/* Product Grid */}
       <ProductsSection />
-      <SideBar/>
-    </div>
+    </>
   );
 }
