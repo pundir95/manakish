@@ -1,11 +1,14 @@
+"use client";
 import { useState } from "react";
 import { FaRegBuilding } from "react-icons/fa";
 import { PiBuildingOfficeBold } from "react-icons/pi";
 import { MdHome } from "react-icons/md";
+import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
 
 function CartAddress() {
   const [selectedType, setSelectedType] = useState("Home");
   const [saveAddress, setSaveAddress] = useState(false);
+  const position = { lat: 30.6425, lng: 76.8173 };
 
   const Tabs = [
     {
@@ -49,18 +52,22 @@ function CartAddress() {
           ))}
         </div>
       </div>
-
       <div className="mb-4">
         <label className="block font-semibold text-gray-700 mb-2">
           Choose on map
         </label>
         <div className="border rounded-md overflow-hidden">
-          {/* Replace with an actual map component or image */}
-          <img
-            src="https://via.placeholder.com/500x200?text=Map+Placeholder"
-            alt="Map"
-            className="w-full h-[200px] object-cover"
-          />
+          <div style={{ width: "100%", height: "300px" }}>
+            <APIProvider apiKey={"AIzaSyDRb_BGMWY3XocACa_K976a0g6y-5QwkqU"}>
+              <Map
+                defaultCenter={position}
+                defaultZoom={10}
+                mapId="3a69014c8faa23da"
+              >
+                <AdvancedMarker position={position} />
+              </Map>
+            </APIProvider>
+          </div>
         </div>
       </div>
 
