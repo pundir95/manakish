@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FooterBar from "./FooterBar";
 
 function MenuSelection() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -39,10 +40,15 @@ function MenuSelection() {
   };
 
   return (
-    <div className="p-6 bg-[#faf4ed]">
+    <div className="p-1 bg-[#faf4ed]">
       {/* Your Choice Section */}
-      <div>
-        <h2 className="text-lg text-gray-600 font-semibold">Your Choice of</h2>
+      <>
+        <div className="flex justify-between items-center mt-2">
+        <div className="text-lg text-gray-600 font-semibold">Your Choice of</div>
+        <div className="text-right text-gray-600 text-sm">
+          Max. Selection : 6, Min Selection : 6
+        </div>
+        </div>
         <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mt-3">
           {choices.map((choice) => (
             <button
@@ -58,14 +64,16 @@ function MenuSelection() {
             </button>
           ))}
         </div>
-        <div className="mt-2 text-right text-gray-600 text-sm">
-          Max. Selection : 6, Min Selection : 6
-        </div>
-      </div>
+      </>
 
       {/* Drinks Section */}
-      <div className="mt-8">
+      <div className="mt-4">
+        <div className="flex justify-between items-center mt-2">
         <h2 className="text-lg font-semibold text-gray-600">Drinks</h2>
+        <div className="text-right text-gray-600 text-sm">
+          Max. Selection : 4, Min Selection : 2
+        </div>
+        </div>
         <div className="grid grid-cols-3 md:grid-cols-4 gap-3 mt-3">
           {drinks.map((drink) => (
             <div
@@ -86,10 +94,14 @@ function MenuSelection() {
             </div>
           ))}
         </div>
-        <div className="mt-2 text-right text-gray-600 text-sm">
-          Max. Selection : 4, Min Selection : 2
-        </div>
       </div>
+      <p className="text-black mt-4">Special Request</p>
+      <textarea
+        rows={4}
+        className="border rounded-xl p-2 w-full mt-2 border-amber-600 text-black"
+        placeholder="Special Instructions"
+      />
+      <FooterBar/>
     </div>
   );
 }
