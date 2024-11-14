@@ -32,7 +32,7 @@ function CategoryCarousel() {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 m-4">
       <Slider {...settings}>
         {categories.map((category, index) => (
           <div key={index} className="">
