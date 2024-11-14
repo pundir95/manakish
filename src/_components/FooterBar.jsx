@@ -1,7 +1,7 @@
 import React from 'react'
 import { GiBasket } from "react-icons/gi";
 
-const FooterBar = () => {
+const FooterBar = ({handleRoute}) => {
   return (
     <div className='h-24 bg-[#D4A373] rounded-t-lg w-full flex items-center justify-around'>
       <p>1,750.00 SEK</p>
@@ -11,7 +11,7 @@ const FooterBar = () => {
           <p className='text-black'>01</p>
           <button className='text-black'>+</button>
         </div>
-        <button className='px-4 py-2 bg-[#35653e] rounded-full flex w-40 justify-around'>
+        <button className='px-4 py-2 bg-[#35653e] rounded-full flex w-40 justify-around' onClick={handleRoute}>
           <div  className='flex gap-4 items-center'>
             <GiBasket/>
             <p>Add to Cart</p>

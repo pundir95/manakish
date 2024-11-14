@@ -1,8 +1,9 @@
 "use client"
 
 import React, { useState } from "react";
+import { GiBasket } from "react-icons/gi";
 
-function ShoppingCart() {
+function ShoppingCart({handleAddressCheckout}) {
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (change) => {
@@ -153,11 +154,16 @@ function ShoppingCart() {
       </div>
 
       {/* Checkout Section */}
-      <div className="flex justify-between items-center border-t border-gray-200 pt-4">
-        <span className="text-xl font-semibold text-gray-800">1,750.00 SEK</span>
-        <button className="bg-green-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-800">
-          Checkout
-        </button>
+      <div className="h-24 bg-[#D4A373] rounded-t-lg w-full flex items-center justify-end p-6">
+        <div className="flex gap-4 justify-center items-center">
+          <p className="text-black">1,750.00 SEK</p>
+          <button className="px-4 py-2 bg-[#35653e] rounded-full flex w-40 justify-around">
+            <div className="flex gap-4 items-center" onClick={handleAddressCheckout}>
+              <GiBasket />
+              <p>Checkout</p>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );

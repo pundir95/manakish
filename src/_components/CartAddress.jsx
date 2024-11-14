@@ -5,10 +5,17 @@ import { PiBuildingOfficeBold } from "react-icons/pi";
 import { MdHome } from "react-icons/md";
 import GoogleMap from "./_common/GoogleMap";
 import { GiBasket } from "react-icons/gi";
+import { useRouter } from 'next/navigation'
 
 function CartAddress() {
   const [selectedType, setSelectedType] = useState("Home");
   const [saveAddress, setSaveAddress] = useState(false);
+
+  const router = useRouter();
+
+  const handleCheckoutClick = () => {
+    router.push("/payment-mode");
+  };
 
   const Tabs = [
     {
@@ -133,7 +140,7 @@ function CartAddress() {
     <div className="h-24 bg-[#D4A373] rounded-t-lg w-full flex items-center justify-end p-6">
         <div className="flex gap-4 justify-center items-center">
           <p className="text-black">1,750.00 SEK</p>
-          <button className="px-4 py-2 bg-[#35653e] rounded-full flex w-40 justify-around">
+          <button className="px-4 py-2 bg-[#35653e] rounded-full flex w-40 justify-around" onClick={handleCheckoutClick}>
             <div className="flex gap-4 items-center">
               <GiBasket />
               <p>Checkout</p>

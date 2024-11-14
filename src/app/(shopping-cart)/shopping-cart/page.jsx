@@ -5,14 +5,17 @@ import ShoppingCart from "@/_components/ShoppingCart";
 import React, { useState } from "react";
 
 function ShoppingDetails() {
+
+  const [showShoppingCart, setShowShoppingCart] = useState(true);
+
+  const handleAddressCheckout = () => {
+    setShowShoppingCart(false);
+  };
  
   return (
    <>
-   {true && <ShoppingCart/>}
-   {false && <CartAddress/>}
+   {showShoppingCart ? <ShoppingCart handleAddressCheckout={handleAddressCheckout}/> : <CartAddress/>}
    </>
-
-  
   );
 }
 

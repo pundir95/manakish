@@ -6,7 +6,7 @@ import React from 'react'
 const SingleProduct = () => {
   return (
     <div>
-    <div className='border bg-[#ffffff] rounded-xl p-2'>
+    <div className='border bg-[#ffffff] rounded-xl p-2 m-4'>
       <div className="flex gap-6">
       <div className="w-3/6">
         <img src="/images/brevg_l.png" class="w-full h-full" />

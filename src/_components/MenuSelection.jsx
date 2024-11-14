@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import FooterBar from "./FooterBar";
+import { useRouter } from 'next/navigation'
 
 function MenuSelection() {
   const [selectedItems, setSelectedItems] = useState([]);
+
+  const router = useRouter();
 
   const choices = [
     "Zaatar",
@@ -39,11 +42,15 @@ function MenuSelection() {
     );
   };
 
+  const handleAddToCartClick = () => {
+    router.push("/shopping-cart");
+  };
+
   return (
     <div className="p-1 bg-[#faf4ed]">
       {/* Your Choice Section */}
-      <>
-        <div className="flex justify-between items-center mt-2">
+      <div className="m-4">
+        <div className="flex justify-between items-center">
         <div className="text-lg text-gray-600 font-semibold">Your Choice of</div>
         <div className="text-right text-gray-600 text-sm">
           Max. Selection : 6, Min Selection : 6
@@ -64,10 +71,11 @@ function MenuSelection() {
             </button>
           ))}
         </div>
-      </>
+      </div>
 
       {/* Drinks Section */}
-      <div className="mt-4">
+      <div className="m-4">
+      <div>
         <div className="flex justify-between items-center mt-2">
         <h2 className="text-lg font-semibold text-gray-600">Drinks</h2>
         <div className="text-right text-gray-600 text-sm">
@@ -101,7 +109,8 @@ function MenuSelection() {
         className="border rounded-xl p-2 w-full mt-2 border-amber-600 text-black"
         placeholder="Special Instructions"
       />
-      <FooterBar/>
+      </div>
+      <FooterBar handleRoute={handleAddToCartClick}/>
     </div>
   );
 }
