@@ -3,12 +3,11 @@ import { useState } from "react";
 import { FaRegBuilding } from "react-icons/fa";
 import { PiBuildingOfficeBold } from "react-icons/pi";
 import { MdHome } from "react-icons/md";
-import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
+import GoogleMap from "./_common/GoogleMap";
 
 function CartAddress() {
   const [selectedType, setSelectedType] = useState("Home");
   const [saveAddress, setSaveAddress] = useState(false);
-  const position = { lat: 30.6425, lng: 76.8173 };
 
   const Tabs = [
     {
@@ -57,17 +56,7 @@ function CartAddress() {
           Choose on map
         </label>
         <div className="border rounded-md overflow-hidden">
-          <div style={{ width: "100%", height: "300px" }}>
-            <APIProvider apiKey={"AIzaSyDRb_BGMWY3XocACa_K976a0g6y-5QwkqU"}>
-              <Map
-                defaultCenter={position}
-                defaultZoom={10}
-                mapId="3a69014c8faa23da"
-              >
-                <AdvancedMarker position={position} />
-              </Map>
-            </APIProvider>
-          </div>
+         <GoogleMap/>
         </div>
       </div>
 
