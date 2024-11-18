@@ -67,6 +67,9 @@ export default function Home() {
                       console.log("Latitude:", lat);
                       console.log("Longitude:", lng);
                     }}
+                    options={{
+                      types: ["establishment", "geocode"], // Allows searching for places like buildings, landmarks, etc.
+                    }}
                     className="w-full border border-orange-200 rounded-full p-2 text-gray-800 bg-[#faf5ed]"
                   />
                 </div>

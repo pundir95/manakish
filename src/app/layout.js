@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Head from "next/head"; // Import Head
 import Header from "@/_components/Header";
+import LeftSection from "@/_components/LeftSection";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,25 +36,12 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex min-h-screen max-w-screen relative">
-  <div className="max-w-[50vw] relative">
-    <img
-      src="/images/homeLeft.png"
-      alt="Manakish Stories"
-      className="min-h-full"
-    />
-    <div className="absolute top-[30px] left-[50px] w-[15vw] h-[5vw]">
-      <img
-        src="/images/Logo.png"
-        alt="Manakish Stories"
-        className="min-h-full"
-      />
-    </div>
-  </div>
-  <div className="w-[50vw]">
-    <Header/>
-    {children}
-  </div>
-</div>
+          <LeftSection/>
+          <div className="w-[50vw]">
+            <Header />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

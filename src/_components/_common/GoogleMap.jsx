@@ -15,7 +15,7 @@ const GoogleMap = () => {
         <APIProvider apiKey={"AIzaSyDRb_BGMWY3XocACa_K976a0g6y-5QwkqU"}>
           <Map
             defaultCenter={position}
-            defaultZoom={10}
+            defaultZoom={20}
             mapId="3a69014c8faa23da"
           >
             <AdvancedMarker position={position} />
