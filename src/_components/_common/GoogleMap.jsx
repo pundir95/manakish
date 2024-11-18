@@ -1,7 +1,7 @@
 import React from "react";
 import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
 
-const GoogleMap = () => {
+const GoogleMap = ({height}) => {
   // const position = { lat: 30.6425, lng: 76.8173 };
 
   const lat = localStorage.getItem("latitude");
@@ -11,7 +11,7 @@ const GoogleMap = () => {
 
   return (
     <>
-      <div style={{ width: "100%", height: "250px" }}>
+      <div style={{ width: "100%", height: height ? height : "250px" }}>
         <APIProvider apiKey={"AIzaSyDRb_BGMWY3XocACa_K976a0g6y-5QwkqU"}>
           <Map
             defaultCenter={position}

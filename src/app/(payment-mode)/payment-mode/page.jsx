@@ -17,7 +17,7 @@ function PaymentMode() {
   return (
     <div className="mx-auto p-6 bg-[#FAF4ED] rounded-lg shadow-lg">
       <UserAddressDetail />
-      <GoogleMap />
+      <GoogleMap height={'200px'}/>
       {/* Order Details */}
       <OrderDetails />
       {/* Price Summary */}
