@@ -8,10 +8,11 @@ const CommonButton = ({
   className = "",
   disabled = false,
   text,
+  onClick
 }) => {
   return (
     <>
-      <button disabled={disabled} type={type} className={className}>
+      <button disabled={disabled} type={type} className={className} onClick={onClick}>
         {/* {loader ? "loading" : text} */}
         {/* {`${text} ${loader ? "<Loader/>" : ""}`} */}
         {text}

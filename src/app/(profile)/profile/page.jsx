@@ -4,6 +4,8 @@ import ModeOfPayment from "@/_components/ModeOfPayment";
 import ProductsSection from "@/_components/ProductsSection";
 import React, { useState } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import ProfilePayment from "@/_components/ProfilePayment";
+import ProfileAddress from "@/_components/ProfileAddress";
 
 const Profile = () => {
     const [paymentMethod, setPaymentMethod] = useState("favourites");
@@ -14,7 +16,7 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen py-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="p-6 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
           <div className="flex items-center gap-4">
             <img
@@ -31,13 +33,13 @@ const Profile = () => {
             Edit Profile
           </button>
         </div>
-        <div className="flex bg-white w-1/2 gap-4">
+        <div className="flex bg-white w-1/2 gap-4 rounded-l-full rounded-r-full ml-6">
           {["favourites", "addresses", "payment_methods"].map((method, index) => (
           <button
             key={method}
             onClick={() => handlePaymentChange(method)}
             className={`px-4 py-2 text-sm font-medium bg-green  ${
-              index === 0 ? "rounded-l-full" : index === 2 ? "rounded-r-full" : ""
+              index === 0 ? "rounded-l-full" : index === 2 ? "rounded-r-full" : index === 1 ? "rounded-r-full rounded-l-full" : ""
             } ${
                 paymentMethod === method
                 ? "bg-[#35653e] text-white"
@@ -54,9 +56,9 @@ const Profile = () => {
           </div>
 
         {/* Product Cards Section */}
-        {paymentMethod=="favourites" &&  <ProductsSection />}
-        {paymentMethod=="addresses" && <AddressList/>}
-        {paymentMethod=="payment_methods" && <ModeOfPayment/>}
+        {paymentMethod=="favourites" &&  <ProductsSection hideAllProducts={true}/>}
+        {paymentMethod=="addresses" && <ProfileAddress/>}
+        {paymentMethod=="payment_methods" && <ProfilePayment/>}
       </div>
     </div>
   );

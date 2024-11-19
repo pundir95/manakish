@@ -37,7 +37,7 @@ const DUMMY_DATA = [
   },
 ];
 
-const ProductsSection = () => {
+const ProductsSection = ({hideAllProducts}) => {
 
   const router = useRouter();
 
@@ -47,7 +47,7 @@ const ProductsSection = () => {
 
   return (
     <section className="m-4">
-    <h3 className="text-lg text-black font-semibold mb-4">All Products</h3>
+    {!hideAllProducts && <h3 className="text-lg text-black font-semibold mb-4">All Products</h3>}
     <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
       {DUMMY_DATA
         .map((ele, index) => (
@@ -61,14 +61,22 @@ const ProductsSection = () => {
               alt={ele.title}
               className="w-full rounded-lg mb-4"
             />
-            <h4 className="text-base text-[#2E4A3D]  font-semibold">{ele.title}</h4>
+            <div className="flex justify-between gap-2 items-center">
+              <div>
+            <h4 className="text-xs text-[#2E4A3D] text-nowrap	">{ele.title}</h4>
             <p className="text-gray-500 text-sm">
               <span className="line-through">$70.00</span>{" "}
               <span className="text-orange-600">$60.00</span>
             </p>
-            <div className="flex justify-between items-center mt-2">
+            </div>
+            <div className="flex justify-between items-center gap-1">
+              <div className="rounded-full p-1 bg-neutral-400">
               <AiOutlineHeart size={20} />
+              </div>
+              <div className="rounded-full p-1 bg-neutral-400">
               <AiOutlineShoppingCart size={20} />
+              </div>
+            </div>
             </div>
           </div>
         ))}
