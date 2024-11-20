@@ -8,7 +8,6 @@ import React, { useState } from "react";
 
 function PaymentMode() {
   const [paymentMethod, setPaymentMethod] = useState("wallet");
-  const [amount, setAmount] = useState("");
 
   const handlePaymentChange = (method) => {
     setPaymentMethod(method);

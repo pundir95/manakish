@@ -46,67 +46,22 @@ const ProfilePayment = () => {
 
   return (
     <div className="p-6">
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "20px",
-        }}
-      >
+      <div className="flex flex-wrap gap-5">
         {cards.map((card) => (
           <div
             key={card.id}
-            style={{
-              //   flex: "1 1 calc(50% - 20px)",
-              border: "1px solid #ccc",
-              borderRadius: "8px",
-              padding: "15px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
-              gap: "16px",
-              width: "48%",
-              backgroundColor: "white"
-            }}
+            className="border border-gray-300 rounded-lg p-4 flex flex-col justify-between shadow-md w-[48%] bg-white"
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: "16px",
-              }}
-            >
+            <div className="flex justify-between items-center gap-4">
               <div>
-                <img src={card.image} />
+                <img src={card.image} alt={card.type} />
               </div>
               <div>
-                <p
-                  style={{
-                    fontSize: "14px",
-                    color: "#555",
-                    marginBottom: "5px",
-                  }}
-                >
-                  {card.number}
-                </p>
-                <p
-                  style={{
-                    fontSize: "12px",
-                    color: "#888",
-                  }}
-                >
-                  Valid till {card.validity}
-                </p>
+                <p className="text-sm text-gray-600 mb-1">{card.number}</p>
+                <p className="text-xs text-gray-400">Valid till {card.validity}</p>
               </div>
               <button
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "red",
-                  cursor: "pointer",
-                }}
+                className="bg-none border-none text-red-500 cursor-pointer"
                 onClick={() => handleDelete(card.id)}
               >
                 DELETE
@@ -114,19 +69,12 @@ const ProfilePayment = () => {
             </div>
             <div>
               {card.default ? (
-                <button
-                  style={{
-                    backgroundColor: "#F4F4F4",
-                    color: "#000000",
-                    padding: "4px 20px",
-                    borderRadius: "30px",
-                  }}
-                >
+                <button className="bg-gray-200 text-black py-1 px-5 rounded-full">
                   Default
                 </button>
               ) : (
                 <button
-                  style={{ color: "#4BAF50", textDecoration: "underline" }}
+                  className="text-green-600 underline"
                   onClick={() => !card.default && handleMakeDefault(card.id)}
                 >
                   Make Default
@@ -136,18 +84,7 @@ const ProfilePayment = () => {
           </div>
         ))}
       </div>
-      <button
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          fontSize: "14px",
-          color: "#fff",
-          backgroundColor: "#2a4423",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
+      <button className="mt-5 py-2 px-6 text-sm text-white bg-green-800 rounded-md cursor-pointer">
         Add Card
       </button>
     </div>

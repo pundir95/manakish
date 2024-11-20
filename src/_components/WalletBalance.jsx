@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import TickIcon from "../../public/icons/Tick";
+import { CiWallet } from "react-icons/ci";
 
 function WalletBalance() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,14 +33,24 @@ function WalletBalance() {
           </p>
         </div>
 
-        <div className="flex justify-between text-center text-gray-800 mb-4">
-          <div>
+        <div className="flex text-gray-800 mb-4 gap-4">
+          <div className="flex-1 border-r">
+            <div className="flex gap-2">
+              <div className="text-2xl text-black"><CiWallet/></div>
+              <div>
             <p className="text-sm">Wallet Balance</p>
-            <p className="text-2xl font-semibold">20.00 SEK</p>
+            <p className="text-2xl text-[#D96C3E]">20.00 SEK</p>
+            </div>
+            </div>
           </div>
+          <div className="">
+          <div className="flex gap-2">
+          <div className="text-2xl text-black"><CiWallet/></div>
           <div>
             <p className="text-sm">Required Amount</p>
-            <p className="text-2xl font-semibold">45.00 SEK</p>
+            <p className="text-2xl text-[#D96C3E]">45.00 SEK</p>
+            </div>
+            </div>
           </div>
         </div>
 
@@ -49,7 +60,7 @@ function WalletBalance() {
 
         <div className="text-center">
           <button
-            className="bg-green-800 text-white px-6 py-2 rounded-md shadow-md hover:bg-green-700 transition duration-300"
+            className="bg-green-800 text-white px-8 py-2 rounded-full shadow-md hover:bg-green-700 transition duration-300"
             onClick={handlePayNowClick}
           >
             Pay Now

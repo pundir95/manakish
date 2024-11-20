@@ -41,7 +41,7 @@ function AddCreditCard() {
               value={cardHolderName}
               onChange={(e) => setCardHolderName(e.target.value)}
               placeholder="Enter Name"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
           </div>
@@ -54,7 +54,7 @@ function AddCreditCard() {
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
               placeholder="Enter Card Number"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
           </div>
@@ -68,7 +68,7 @@ function AddCreditCard() {
                 value={expiryMonth}
                 onChange={(e) => setExpiryMonth(e.target.value)}
                 placeholder="MM/YY"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -79,7 +79,7 @@ function AddCreditCard() {
                 value={cvv}
                 onChange={(e) => setCvv(e.target.value)}
                 placeholder="Enter CVV"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -89,7 +89,7 @@ function AddCreditCard() {
           <div className="text-center mt-4">
             <button
               type="submit"
-              className="bg-green-800 text-white px-6 py-2 rounded-md shadow-md hover:bg-green-700 transition duration-300"
+              className="bg-green-800 text-white px-6 py-2 rounded-full shadow-md hover:bg-green-700 transition duration-300"
             >
               Pay now
             </button>

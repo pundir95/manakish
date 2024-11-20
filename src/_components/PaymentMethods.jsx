@@ -4,13 +4,13 @@ import AddCreditCard from './AddCreditCard';
 
 const PaymentMethods = ({ handlePaymentChange, paymentMethod }) => {
   return (
-    <div className="p-4 border border-[#d4a373] rounded-lg">
-      <div className="flex justify-center bg-white mb-4 p-1">
+    <div className="p-4 border border-[#d4a373] rounded-lg relative mt-16">
+      <div className="flex justify-center bg-white mb-4 p-2 w-min rounded-r-full rounded-l-full border border-[#d4a373] absolute top-[-2rem]">
         {["wallet", "debit", "credit"].map((method, index) => (
           <button
             key={method}
             onClick={() => handlePaymentChange(method)}
-            className={`px-4 py-2 text-sm font-medium bg-green  ${
+            className={`px-4 py-2 text-sm font-medium bg-green text-nowrap rounded-r-full rounded-l-full  ${
               index === 0 ? "rounded-l-full" : index === 2 ? "rounded-r-full" : ""
             } ${
               paymentMethod === method

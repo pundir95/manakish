@@ -4,32 +4,32 @@ import DeleteIcon from "../../public/icons/delete";
 import PencilIcon from "../../public/icons/pencil";
 
 const ProfileAddress = () => {
-    const addresses = [
-        {
-          street: 'Sveavägen',
-          city: 'Göteborg',
-          postalCode: '411 07',
-          country: 'Sweden',
-        },
-        {
-          street: 'Sveavägen',
-          city: 'Göteborg',
-          postalCode: '411 07',
-          country: 'Sweden',
-        },
-        {
-          street: 'Sveavägen',
-          city: 'Göteborg',
-          postalCode: '411 07',
-          country: 'Sweden',
-        },
-        {
-          street: 'Sveavägen',
-          city: 'Göteborg',
-          postalCode: '411 07',
-          country: 'Sweden',
-        },
-      ];
+  const addresses = [
+    {
+      street: 'Sveavägen',
+      city: 'Göteborg',
+      postalCode: '411 07',
+      country: 'Sweden',
+    },
+    {
+      street: 'Sveavägen',
+      city: 'Göteborg',
+      postalCode: '411 07',
+      country: 'Sweden',
+    },
+    {
+      street: 'Sveavägen',
+      city: 'Göteborg',
+      postalCode: '411 07',
+      country: 'Sweden',
+    },
+    {
+      street: 'Sveavägen',
+      city: 'Göteborg',
+      postalCode: '411 07',
+      country: 'Sweden',
+    },
+  ];
 
   const handleDelete = (id) => {
     console.log(`Delete card with id: ${id}`);
@@ -41,57 +41,37 @@ const ProfileAddress = () => {
 
   return (
     <div className="p-6">
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "20px",
-        }}
-      >
-        {addresses.map((card) => (
+      <div className="flex flex-wrap gap-5">
+        {addresses.map((card, index) => (
           <div
-            key={card.id}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "8px",
-              padding: "15px",
-              display: "flex",
-              justifyContent: "space-between",
-              boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
-              gap: "16px",
-              width: "48%",
-              backgroundColor: "white"
-            
-            }}
+            key={index}
+            className="border border-gray-300 rounded-lg p-4 flex justify-between shadow-md gap-4 w-[48%] bg-white"
           >
             <div>
-            <HomeIcon/>
+              <HomeIcon />
             </div>
             <div className="w-4/5">
-            <div className="text-[#DBDBDB] text-sm"><span className="text-black text-sm">Street Address:</span>{card.street}</div>
-            <div className="text-[#DBDBDB] text-sm"><span className="text-black text-sm">City:</span>{card.city}</div>
-            <div className="text-[#DBDBDB] text-sm"><span className="text-black text-sm">Postal Code:</span>{card.postalCode}</div>
-            <div className="text-[#DBDBDB] text-sm"><span className="text-black text-sm">Country:</span>{card.country}</div>
+              <div className="text-gray-400 text-sm">
+                <span className="text-black text-sm">Street Address:</span> {card.street}
+              </div>
+              <div className="text-gray-400 text-sm">
+                <span className="text-black text-sm">City:</span> {card.city}
+              </div>
+              <div className="text-gray-400 text-sm">
+                <span className="text-black text-sm">Postal Code:</span> {card.postalCode}
+              </div>
+              <div className="text-gray-400 text-sm">
+                <span className="text-black text-sm">Country:</span> {card.country}
+              </div>
             </div>
             <div className="w-1/5 flex gap-1 items-end">
-            <PencilIcon/>
-            <DeleteIcon/>
+              <PencilIcon />
+              <DeleteIcon />
             </div>
           </div>
         ))}
       </div>
-      <button
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          fontSize: "14px",
-          color: "#fff",
-          backgroundColor: "#2a4423",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
-      >
+      <button className="mt-5 px-6 py-2 text-sm text-white bg-[#2a4423] border-none rounded cursor-pointer">
         Add Address
       </button>
     </div>
