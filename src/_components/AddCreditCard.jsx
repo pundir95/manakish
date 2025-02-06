@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import getStripe from "../../getStripe";
 
 function AddCreditCard() {
   // State variables to store form data
@@ -19,6 +20,24 @@ function AddCreditCard() {
     });
     alert("Payment Submitted");
   };
+
+
+  async function handleCheckout() {
+    const stripe = await getStripe();
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        {
+          price: "price_1QOv5iB7I7laMhIQtcCXg2e0",
+          quantity: 1,
+        },
+      ],
+      mode: 'subscription',
+      successUrl: `http://localhost:3000/success`,
+      cancelUrl: `http://localhost:3000/cancel`,
+      customerEmail: 'customer@email.com',
+    });
+    console.warn(error.message);
+  }
 
   return (
     <div className="flex max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
@@ -95,6 +114,7 @@ function AddCreditCard() {
             </button>
           </div>
         </form>
+        <button type="button" onClick={handleCheckout}>Checkout</button>
       </div>
     </div>
   );
