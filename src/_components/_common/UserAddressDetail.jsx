@@ -5,32 +5,23 @@ import { IoIosHome } from "react-icons/io";
 
 const UserAddressDetail = () => {
   return (
-    <div className="flex space-x-6 m-4 text-gray-700">
-      <div className="flex items-center space-x-2">
-        <span>
-          <FaRegUser />
-        </span>
-        <div className="font-semibold">Dummy User</div>
-      </div>
-
-      <div className="flex items-center space-x-2">
-        <span>
-          <FaPhone />
-        </span>
-        <div>+987 654 321 1230</div>
-      </div>
-
+    <>
+    <div className="text-black mb-3">Address Details</div>
+    <div className="flex gap-4 mb-3">
+    <div className="flex text-black items-center gap-2 text-sm">
       <div>
-        <div className="flex items-center space-x-2">
-          <span>
-            <IoIosHome />
-          </span>
-          <div>Storgatan 25, Stockholm, Sweden</div>
-
-          <div> | 114 56</div>
+          <FaRegUser />
         </div>
-      </div>
+        <div className="">Dummy User  |  +987 654 321 1230</div>
     </div>
+    <div className="flex text-black items-center gap-2 text-sm">
+    <div>
+    <IoIosHome />
+        </div>
+        <div className="">Storgatan 25, Stockholm, Sweden  |   114 56</div>
+    </div>
+    </div>
+    </>
   );
 };
 

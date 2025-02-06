@@ -8,7 +8,6 @@ import React, { useState } from "react";
 
 function PaymentMode() {
   const [paymentMethod, setPaymentMethod] = useState("wallet");
-  const [amount, setAmount] = useState("");
 
   const handlePaymentChange = (method) => {
     setPaymentMethod(method);
@@ -17,7 +16,7 @@ function PaymentMode() {
   return (
     <div className="mx-auto p-6 bg-[#FAF4ED] rounded-lg shadow-lg">
       <UserAddressDetail />
-      <GoogleMap />
+      <GoogleMap height={'200px'}/>
       {/* Order Details */}
       <OrderDetails />
       {/* Price Summary */}

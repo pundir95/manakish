@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import getStripe from "../../getStripe";
 
 function AddCreditCard() {
   // State variables to store form data
@@ -19,6 +20,24 @@ function AddCreditCard() {
     });
     alert("Payment Submitted");
   };
+
+
+  async function handleCheckout() {
+    const stripe = await getStripe();
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [
+        {
+          price: "price_1QOv5iB7I7laMhIQtcCXg2e0",
+          quantity: 1,
+        },
+      ],
+      mode: 'subscription',
+      successUrl: `http://localhost:3000/success`,
+      cancelUrl: `http://localhost:3000/cancel`,
+      customerEmail: 'customer@email.com',
+    });
+    console.warn(error.message);
+  }
 
   return (
     <div className="flex max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
@@ -41,7 +60,7 @@ function AddCreditCard() {
               value={cardHolderName}
               onChange={(e) => setCardHolderName(e.target.value)}
               placeholder="Enter Name"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
           </div>
@@ -54,7 +73,7 @@ function AddCreditCard() {
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
               placeholder="Enter Card Number"
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
           </div>
@@ -68,7 +87,7 @@ function AddCreditCard() {
                 value={expiryMonth}
                 onChange={(e) => setExpiryMonth(e.target.value)}
                 placeholder="MM/YY"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -79,7 +98,7 @@ function AddCreditCard() {
                 value={cvv}
                 onChange={(e) => setCvv(e.target.value)}
                 placeholder="Enter CVV"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-[#d4a373] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
@@ -89,12 +108,13 @@ function AddCreditCard() {
           <div className="text-center mt-4">
             <button
               type="submit"
-              className="bg-green-800 text-white px-6 py-2 rounded-md shadow-md hover:bg-green-700 transition duration-300"
+              className="bg-green-800 text-white px-6 py-2 rounded-full shadow-md hover:bg-green-700 transition duration-300"
             >
               Pay now
             </button>
           </div>
         </form>
+        <button type="button" onClick={handleCheckout}>Checkout</button>
       </div>
     </div>
   );

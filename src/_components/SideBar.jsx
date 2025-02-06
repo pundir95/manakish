@@ -7,22 +7,25 @@ import { FaClockRotateLeft } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { CiWallet } from "react-icons/ci";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { useRouter } from "next/navigation";
 
-
-export default function SideBar({isSidebarOpen,toggleSidebar}) {
-
-
+export default function SideBar({ isSidebarOpen, toggleSidebar }) {
+  const router = useRouter();
 
   const sidebarList = [
-    {name:"My Cart",icon:<GiBasket/>},
-    {name:"Food Menu",icon:<MdMenuBook/>},
-    {name:"My Profile",icon:<IoPersonOutline/>},
-    {name:"My Orders",icon:<FaClockRotateLeft/>},
-    {name:"Delivery Addresses",icon:<IoLocationOutline/>},
-    {name:"Wallet",icon:<CiWallet/>},
-    {name:"Points",icon:<GiBasket/>},
-    {name:"Delete Account",icon:<RiDeleteBinLine/>}
-  ]
+    { name: "My Cart", icon: <GiBasket />, path: "/shopping-cart" },
+    { name: "Food Menu", icon: <MdMenuBook />, path: "/" },
+    { name: "My Profile", icon: <IoPersonOutline />, path: "/profile" },
+    { name: "My Orders", icon: <FaClockRotateLeft />, path: "/order-history" },
+    {
+      name: "Delivery Addresses",
+      icon: <IoLocationOutline />,
+      path: "/profile",
+    },
+    { name: "Wallet", icon: <CiWallet />, path: "/add-money" },
+    { name: "Points", icon: <GiBasket />, path: "/add-money" },
+    { name: "Delete Account", icon: <RiDeleteBinLine />, path: "/profile" },
+  ];
 
   return (
     <>
@@ -43,27 +46,26 @@ export default function SideBar({isSidebarOpen,toggleSidebar}) {
         <div className="p-6">
           <h2 className="text-lg font-bold mb-4">Menu</h2>
           <ul className="space-y-2">
-          {/* <li>My Cart</li>
-            <li>Food Menu</li>
-            <li>My Profile</li>
-            <li>My Orders</li>
-            <li>Delivery Addresses</li>
-            <li>Wallet</li>
-            <li>Points</li>
-            <li>Delete Account</li> */}
-           {sidebarList.map((item)=>(
-            <li className="border-b-2 border-[#D4A373B2] pb-1 cursor-pointer">
-              <div className="flex gap-4 w-full items-center">
-              {item.icon}
-              {item.name}
-              </div>
+            {sidebarList.map((item) => (
+              <li
+                className="border-b-2 border-[#D4A373B2] pb-1 cursor-pointer"
+                onClick={() => router.push(item.path)}
+              >
+                <div className="flex gap-4 w-full items-center">
+                  {item.icon}
+                  {item.name}
+                </div>
               </li>
-           ))}
+            ))}
           </ul>
 
           {/* QR Code */}
           <div className="mt-8">
-            <img src="/images/qr_code.png" alt="QR Code" className="w-32 h-32 mx-auto" />
+            <img
+              src="/images/qr_code.png"
+              alt="QR Code"
+              className="w-32 h-32 mx-auto"
+            />
           </div>
 
           {/* Website Link */}

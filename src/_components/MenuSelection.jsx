@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 
 function MenuSelection() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedDrinks, setSelectedDrinks] = useState([]); 
 
   const router = useRouter();
 
@@ -34,12 +35,24 @@ function MenuSelection() {
     { name: "Fanta Orange", price: "KD 0.250" ,image:"/images/drink_1.png"},
   ];
 
-  const handleSelection = (item) => {
-    setSelectedItems((prev) =>
-      prev.includes(item)
-        ? prev.filter((selected) => selected !== item)
-        : [...prev, item]
-    );
+  const handleChoiceSelection = (item) => {
+    // Max. Selection: 6, Min. Selection: 6
+    if (selectedItems.includes(item)) {
+      setSelectedItems(selectedItems.filter((selected) => selected !== item));
+    } else if (selectedItems.length < 6) {
+      setSelectedItems([...selectedItems, item]);
+    }
+  };
+
+  const handleDrinkSelection = (drink) => {
+    // Check the selection limits (Max 4, Min 2)
+    if (selectedDrinks.includes(drink)) {
+      setSelectedDrinks(selectedDrinks.filter((selected) => selected !== drink));  // Deselect drink if it's already selected
+    } else {
+      if (selectedDrinks.length < 4) {  // Max 4 drinks
+        setSelectedDrinks([...selectedDrinks, drink]);
+      }
+    }
   };
 
   const handleAddToCartClick = () => {
@@ -60,10 +73,10 @@ function MenuSelection() {
           {choices.map((choice) => (
             <button
               key={choice}
-              onClick={() => handleSelection(choice)}
+              onClick={() => handleChoiceSelection(choice)}
               className={`py-1 px-2 rounded-md border-2 font-medium text-center ${
                 selectedItems.includes(choice)
-                  ? "bg-green-700 text-white"
+                  ? "bg-[#3E5F41] text-white"
                   : "text-gray-800"
               }`}
             >
@@ -71,6 +84,11 @@ function MenuSelection() {
             </button>
           ))}
         </div>
+        {selectedItems.length < 6 && selectedItems.length > 0 && (
+          <div className="text-red-600 mt-2">
+            You must select exactly 6 items.
+          </div>
+        )}
       </div>
 
       {/* Drinks Section */}
@@ -86,7 +104,10 @@ function MenuSelection() {
           {drinks.map((drink) => (
             <div
               key={drink.name}
-              className="flex flex-row items-center border border-gray-200 rounded-md text-center bg-gray-50"
+              onClick={() => handleDrinkSelection(drink.name)}
+              className={`flex flex-row items-center border border-gray-200 rounded-md text-center bg-gray-50 ${
+                selectedDrinks.includes(drink.name) ? 'bg-green-900 text-white' : 'cursor-pointer'
+              }`}
             >
                 <div>
               <img
@@ -102,6 +123,16 @@ function MenuSelection() {
             </div>
           ))}
         </div>
+        {selectedDrinks.length < 2 && selectedDrinks.length > 0 && (
+          <div className="text-red-600 mt-2">
+            You must select at least 2 drinks.
+          </div>
+        )}
+        {selectedDrinks.length > 4 && (
+          <div className="text-red-600 mt-2">
+            You can only select up to 4 drinks.
+          </div>
+        )}
       </div>
       <p className="text-black mt-4">Special Request</p>
       <textarea
